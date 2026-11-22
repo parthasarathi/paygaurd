@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { BrowserRouter, Navigate, NavLink, Outlet, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { getToken, setToken } from './api'
 import { useApi } from './hooks'
+import { PlanMeter } from './PlanMeter'
 import Agent from './pages/Agent'
 import Billing from './pages/Billing'
 import Developers from './pages/Developers'
@@ -57,6 +58,7 @@ function Sidebar({ me, onNavigate, onSignOut }: { me: Me | null; onNavigate: () 
           <NavLink key={to} to={to} onClick={onNavigate} className={item}><Icon size={20} />{label}</NavLink>
         ))}
       </nav>
+      <PlanMeter onNavigate={onNavigate} />
       <div className="flex items-center gap-3 border-t border-slate-200 pt-4">
         {me ? (
           <>
