@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1795340902077,
+      "tag": "0000_absent_patch",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1795341437672,
+      "tag": "0001_mute_ultimatum",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795342663645,
+      "tag": "0002_many_grim_reaper",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1795343765253,
+      "tag": "0003_lazy_payback",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1795344218161,
+      "tag": "0004_rich_the_anarchist",
+      "breakpoints": true
+    }
+  ]
+}

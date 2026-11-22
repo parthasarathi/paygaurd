@@ -1,0 +1,20 @@
+import "dotenv/config";
+import { serve } from "@hono/node-server";
+import { cors } from "hono/cors";
+import { migrateDb } from "./db/client";
+import { startEmailPoller } from "./ingest/email";
+import { startFolderWatcher } from "./ingest/folder";
+import { app } from "./routes";
+import { backfillLinks } from "./services/ingest";
+import { ensureSeedSettings, ensureSeedUser } from "./seed";
+
+app.use("*", cors({ origin: (o) => o ?? "*" }));
+await migrateDb();
+await ensureSeedUser();
+await ensureSeedSettings();
+void backfillLinks().catch((e) => console.warn("backfill failed:", e.message));
+startFolderWatcher();
+startEmailPoller();
+const port = Number(process.env.PORT ?? 8787);
+serve({ fetch: app.fetch, port });
+console.log(`API listening on http://localhost:${port}`);
